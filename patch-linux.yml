@@ -67,5 +67,5 @@
         search_regex: OpenSSH
         port: 22
       become: false
-      when: reboot.changed
+      #when: reboot.changed
       delegate_to: localhost
