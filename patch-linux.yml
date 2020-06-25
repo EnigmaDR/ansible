@@ -46,13 +46,12 @@
   tasks:
     - name: New linux-image-generic installation
       apt:
+        name: linux-image-generic
+        state: latest
         update_cache: yes
-        force_apt_get: yes
-        cache_valid_time: 3600
-    - name: Upgrade all packages
-       apt:
-           upgrade: dist
-        
+        cache_valid_time: 600
+      register: upgraded
+
     - name: reboot
       shell: shutdown -r now
       when: upgraded.changed
@@ -68,7 +67,6 @@
       become: false
       when: reboot.changed
       delegate_to: localhost
-
 
 - hosts: RedHat
   gather_facts: false
