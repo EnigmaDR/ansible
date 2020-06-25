@@ -14,11 +14,14 @@
   become: yes
   max_fail_percentage: 0
   tasks:
+    - name: update apt list
+    apt:
+      update_cache: yes
+      
     - name: New linux-image-generic installation
       apt:
         name: linux-image-generic
         state: latest
-        update_cache: yes
         cache_valid_time: 600
       register: upgraded
 
