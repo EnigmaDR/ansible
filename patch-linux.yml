@@ -15,7 +15,7 @@
   max_fail_percentage: 0
   tasks:
     - name: update apt list
-    apt:
+      apt:
         update_cache: yes
       
     - name: New linux-image-generic installation
