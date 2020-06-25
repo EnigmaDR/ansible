@@ -46,11 +46,13 @@
   tasks:
     - name: New linux-image-generic installation
       apt:
-        name: linux-image-generic
-        state: latest
         update_cache: yes
-        cache_valid_time: 600
-      register: upgraded
+        force_apt_get: yes
+        cache_valid_time: 3600
+    - name: Upgrade all packages
+       apt:
+        upgrade: dist
+      
 
     - name: reboot
       shell: shutdown -r now
