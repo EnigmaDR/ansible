@@ -16,7 +16,7 @@
   tasks:
     - name: update apt list
     apt:
-      update_cache: yes
+        update_cache: yes
       
     - name: New linux-image-generic installation
       apt:
