@@ -19,9 +19,9 @@
         #update_cache: yes
       
     - name: New linux-image-generic installation
-      apt:
-        name: linux-image-generic
-        state: latest
+      apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+        #name: linux-image-generic
+        #state: latest
         #cache_valid_time: 600
       register: upgraded
 
