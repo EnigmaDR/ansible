@@ -11,7 +11,7 @@
 - hosts: Debian
   gather_facts: false
   serial: 1
-  become: yes
+  #become: yes
   max_fail_percentage: 0
   tasks:
     #- name: update apt list
@@ -19,12 +19,17 @@
         #update_cache: yes
       
     - name: New linux-image-generic installation
-      apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+      become: true
+      apt:
+        upgrade: yes
+        update_cache: yes
+        cache_valid_time: 86400 #One day
         #name: linux-image-generic
         #state: latest
         #cache_valid_time: 600
       register: upgraded
-
+# update_cache=yes force_apt_get=yes cache_valid_time=3600
+    
     - name: Reboot box if kernel/libs updated and requested by the system
       shell: sleep 10 && /sbin/shutdown -r now 'Rebooting box to update system libs/kernel as needed'
       when: upgraded.changed
