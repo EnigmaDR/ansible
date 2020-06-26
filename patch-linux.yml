@@ -12,18 +12,17 @@
   gather_facts: false
   serial: 1
   become: yes
-  #sudo: yes
   max_fail_percentage: 0
   tasks:
-    - name: update apt list
-      apt:
-        update_cache: yes
+    #- name: update apt list
+      #apt:
+        #update_cache: yes
       
     - name: New linux-image-generic installation
       apt:
         name: linux-image-generic
         state: latest
-        cache_valid_time: 600
+        #cache_valid_time: 600
       register: upgraded
 
     - name: Reboot box if kernel/libs updated and requested by the system
