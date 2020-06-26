@@ -12,7 +12,7 @@
   gather_facts: false
   serial: 1
   become: yes
-  sudo: yes
+  #sudo: yes
   max_fail_percentage: 0
   tasks:
     - name: update apt list
