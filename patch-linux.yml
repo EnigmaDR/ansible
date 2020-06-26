@@ -12,6 +12,7 @@
   gather_facts: false
   serial: 1
   become: yes
+  sudo: yes
   max_fail_percentage: 0
   tasks:
     - name: update apt list
@@ -89,3 +90,27 @@
       debug:
         var: uname_result.stdout_lines
       when: upgraded.changed
+
+    #- name: reboot
+     # shell: sleep 5 && reboot
+      #async: 1
+      #poll: 0
+      #when: upgraded.changed
+      #register: reboot
+      
+    #- name: Wait for the reboot to complete if there was a change.
+     # wait_for_connection:
+      #  connect_timeout: 20
+       # sleep: 5
+        #delay: 5
+        #timeout: 30
+    #- name: Wait for the server to come back
+     # wait_for:
+      #  host: "{{ ansible_ssh_host | default(inventory_hostname) }}"
+       # delay: 240
+        #state: started
+        #search_regex: OpenSSH
+        #port: 22
+      #become: false
+      #when: reboot.changed
+      #delegate_to: localhost
