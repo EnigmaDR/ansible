@@ -64,20 +64,20 @@
       ignore_errors: true
            
       
-      - name: Wait for system to become reachable again
-        wait_for_connection:
+    - name: Wait for system to become reachable again
+      wait_for_connection:
             delay: 60
             timeout: 300
             when: upgraded.changed
 
-      - name: Verify new update (optional)
-        command: uname -mrs
-        register: uname_result
+    - name: Verify new update (optional)
+      command: uname -mrs
+      register: uname_result
+      when: upgraded.changed
+    - name: Display new kernel version
+      debug:
+        var: uname_result.stdout_lines
         when: upgraded.changed
-      - name: Display new kernel version
-        debug:
-            var: uname_result.stdout_lines
-            when: upgraded.changed
 
     #- name: reboot
      # shell: sleep 5 && reboot
