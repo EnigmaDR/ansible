@@ -36,4 +36,11 @@
 
     # reboot only if required
     - win_reboot:
+        #pre_reboot_delay: 2 # not required. Seconds for shutdown to wait before requesting reboot
+        #post_reboot_delay: 0 # not required. Seconds to wait after the reboot was successful and the connection was re-established,This is useful if you want wait for something to settle despite your connection already working
+        test_command: whoami # not required. Command to expect success for to determine the machine is ready for management
+        #shutdown_timeout: 600 # not required. Maximum seconds to wait for shutdown to occur,Increase this timeout for very slow hardware, large update applications, etc,This option has been removed since Ansible 2.5 as the win_reboot behavior has changed
+        reboot_timeout: 1800 # not required. Maximum seconds to wait for machine to re-appear on the network and respond to a test command,This timeout is evaluated separately for both network appearance and test command success (so maximum clock time is actually twice this value)
+        msg: Reboot initiated by Ansible # not required. Message to display to users
+        connect_timeout: 5 # not required. Maximum seconds to wait for a single successful TCP connection to the WinRM endpoint before trying again
       when: result.reboot_required
