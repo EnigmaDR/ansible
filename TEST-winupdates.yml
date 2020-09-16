@@ -4,16 +4,15 @@
 # http://docs.ansible.com/ansible/win_updates_module.html
 # https://docs.ansible.com/ansible/win_reboot_module.html
 
-- name:  Windows Update
-  hosts: all
-  gather_facts: true
-  tasks:
-    - name: Running Windows Update
-      win_updates:
-        blacklist:
-          - Windows Malicious Software Removal Tool for Windows
-          - Security Intelligence Update for Microsoft Defender Antivirus
-      register: result
+- name: Install all security, critical, and rollup updates without a scheduled task
+  win_updates:
+    category_names:
+      - SecurityUpdates
+      - CriticalUpdates
+      - UpdateRollup
+    state: searched
+    log_path: C:\ansible_wu.tx
+    register: result
 
     # output results
     - debug: var=result
