@@ -5,14 +5,17 @@
 # https://docs.ansible.com/ansible/win_reboot_module.html
 
 - name: Install all security, critical, and rollup updates without a scheduled task
-  win_updates:
-    category_names:
-      - SecurityUpdates
-      - CriticalUpdates
-      - UpdateRollup
-    state: searched
-    log_path: C:\ansible_wu.tx
-    register: result
+  hosts: all
+  gather_facts: true
+  tasks:
+    win_updates:
+      category_names:
+        - SecurityUpdates
+        - CriticalUpdates
+        - UpdateRollup
+      state: searched
+      log_path: C:\ansible_wu.tx
+      register: result
 
     # output results
     #- debug: var=result
