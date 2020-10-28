@@ -1,0 +1,19 @@
+---
+
+- name: Test Lars
+  hosts: all
+  gather_facts: true
+
+  tasks:
+  - name: Test temp dir
+    win_file:
+      path: c:\temp\11.test.txt
+      state: touch
+
+
+  - name: Clean disk med cleanmgr
+    cleanmgr:
+      cleanmgr_install_reboot: false
+      cleanmgr_cleanmgr_reboot: false
+      cleanmgr_temporary_files: true
+    tags: cleantemp
