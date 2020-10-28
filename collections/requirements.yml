@@ -4,3 +4,6 @@ collections:
    - name: nginxinc.nginx_core
    #- name: deekayen.cleanmgr
    - name: community.kubernetes
+   - src: https://github.com/deekayen/ansible-role-cleanmgr
+   version: master
+   name: deekayen.cleanmgr
