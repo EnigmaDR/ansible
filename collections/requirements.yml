@@ -2,7 +2,7 @@ collections:
    #- name: ansible.tower
    #- name: awx.awx
    #- name: nginxinc.nginx_core
-   - name: deekayen.cleanmgr
+   - name: geerlingguy.php_roles
      source: https://galaxy.ansible.com
    #- name: community.kubernetes
    #- src: https://github.com/deekayen/ansible-role-cleanmgr
