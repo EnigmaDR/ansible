@@ -1,5 +1,5 @@
 collections:
    #- name: ansible.tower
-   #- name: awx.awx
+   - name: awx.awx
    - name: nginxinc.nginx_core
-   - name: deekayen.cleanmgr
+   #- name: deekayen.cleanmgr
