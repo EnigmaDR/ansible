@@ -6,4 +6,4 @@ collections:
    #- name: community.kubernetes
    - src: https://github.com/deekayen/ansible-role-cleanmgr
      version: master
-     name: ansible-role-cleanmgr
+     #name: ansible-role-cleanmgr
