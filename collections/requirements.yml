@@ -1,4 +1,4 @@
-collections:
+#collections:
    #- name: ansible.tower
    #- name: awx.awx
    #- name: nginxinc.nginx_core
