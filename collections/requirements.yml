@@ -2,8 +2,8 @@ collections:
    #- name: ansible.tower
    #- name: awx.awx
    #- name: nginxinc.nginx_core
-   - name: deekayen.dotnet452
-     source: https://galaxy.ansible.com
+   #- name: deekayen.dotnet452
+    # source: https://galaxy.ansible.com
    #- name: community.kubernetes
    #- src: https://github.com/deekayen/ansible-role-cleanmgr
      #version: master
